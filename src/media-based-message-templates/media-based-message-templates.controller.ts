@@ -1,6 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { MediaBasedMessageTemplatesService } from './media-based-message-templates.service';
-import { TemplateData } from './interfaces';
+import { CouponTemplateData, TemplateData } from './interfaces';
 
 @Controller('media-based-message-templates')
 export class MediaBasedMessageTemplatesController {
@@ -8,8 +8,13 @@ export class MediaBasedMessageTemplatesController {
     private readonly mediaBasedMessageTemplatesService: MediaBasedMessageTemplatesService,
   ) {}
 
-  @Post('send-template')
-  sendTemplate(@Body() body: TemplateData) {
-    return this.mediaBasedMessageTemplatesService.handleSendTemplate(body);
+  @Post('send-simple-template')
+  sendSimpleTemplate(@Body() body: TemplateData) {
+    return this.mediaBasedMessageTemplatesService.handleSendSimpleTemplate(body);
+  }
+
+  @Post('send-cupon-template')
+  sendCouponTemplate(@Body() body: CouponTemplateData) {
+    return this.mediaBasedMessageTemplatesService.handleSendCouponTemplate(body);
   }
 }
