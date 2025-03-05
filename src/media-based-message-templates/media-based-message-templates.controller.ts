@@ -13,7 +13,7 @@ export class MediaBasedMessageTemplatesController {
     return this.mediaBasedMessageTemplatesService.handleSendSimpleTemplate(body);
   }
 
-  @Post('send-cupon-template')
+  @Post('send-coupon-template')
   sendCouponTemplate(@Body() body: CouponTemplateData) {
     return this.mediaBasedMessageTemplatesService.handleSendCouponTemplate(body);
   }
