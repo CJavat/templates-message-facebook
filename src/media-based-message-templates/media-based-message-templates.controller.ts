@@ -9,7 +9,7 @@ export class MediaBasedMessageTemplatesController {
   ) {}
 
   @Post('send-simple-template')
-  sendSimpleTemplate(@Body() body: TemplateData) {
+  sendSimpleTemplate(@Body() body: TemplateData): Promise<{}> {
     return this.mediaBasedMessageTemplatesService.handleSendSimpleTemplate(body);
   }
 
