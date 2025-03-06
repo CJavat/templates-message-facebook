@@ -14,7 +14,7 @@ export class MediaBasedMessageTemplatesController {
   }
 
   @Post('send-coupon-template')
-  sendCouponTemplate(@Body() body: CouponTemplateData) {
+  sendCouponTemplate(@Body() body: CouponTemplateData): Promise<{}>{
     return this.mediaBasedMessageTemplatesService.handleSendCouponTemplate(body);
   }
 }
